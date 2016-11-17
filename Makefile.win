@@ -1,0 +1,36 @@
+# Project: sync
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o file.o process.o $(RES)
+LINKOBJ  = main.o file.o process.o $(RES)
+LIBS =  -L"C:/tools/Dev-Cpp/lib"  -g3 
+INCS =  -I"C:/tools/Dev-Cpp/include" 
+CXXINCS =  -I"C:/tools/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/tools/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/tools/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/tools/Dev-Cpp/include/c++/3.4.2"  -I"C:/tools/Dev-Cpp/include" 
+BIN  = sync.exe
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS) -g    -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before sync.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "sync.exe" $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+file.o: file.c
+	$(CC) -c file.c -o file.o $(CFLAGS)
+
+process.o: process.c
+	$(CC) -c process.c -o process.o $(CFLAGS)
